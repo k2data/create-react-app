@@ -1,7 +1,7 @@
 {
-  "name": "k2-react-scripts",
+  "name": "k2-redux-react-scripts",
   "version": "1.1.1",
-  "description": "K2 configuration and scripts for Create React App.",
+  "description": "K2 configuration and scripts for Create React App with redux.",
   "repository": "k2data/create-react-app",
   "license": "MIT",
   "engines": {
