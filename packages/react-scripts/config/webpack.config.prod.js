@@ -231,6 +231,7 @@ module.exports = {
                             ],
                             flexbox: 'no-2009',
                           }),
+                          require('postcss-preset-env'),
                         ],
                       },
                     },
