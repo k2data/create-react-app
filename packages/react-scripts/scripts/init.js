@@ -122,6 +122,7 @@ module.exports = function(
     );
 
     if (args.length > baseArgs.length) {
+      console.log();
       console.log(`Installing template dependencies using ${command}...`);
       console.log();
       run(command, args);
