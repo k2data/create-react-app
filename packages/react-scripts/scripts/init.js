@@ -99,7 +99,7 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('@rematch/core', 'react', 'react-dom', 'react-loadable', 'react-redux', 'react-router', 'redux');
+  args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
