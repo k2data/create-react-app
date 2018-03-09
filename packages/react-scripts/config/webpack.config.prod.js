@@ -221,6 +221,8 @@ module.exports = {
                         // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
                         plugins: () => [
+                          require('postcss-nested')(),
+                          require('postcss-preset-env')({stage: 3}),
                           require('postcss-flexbugs-fixes'),
                           autoprefixer({
                             browsers: [
@@ -231,7 +233,6 @@ module.exports = {
                             ],
                             flexbox: 'no-2009',
                           }),
-                          require('postcss-preset-env'),
                         ],
                       },
                     },
