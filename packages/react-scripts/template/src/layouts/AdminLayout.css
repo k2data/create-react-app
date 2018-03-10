@@ -1,0 +1,38 @@
+.layout {
+  min-height: 100vh;
+}
+
+.sider {
+  color: #f0f2f6;
+}
+
+.header {
+  background-color: #fff;
+  padding: 0;
+}
+
+.logo {
+  height: 2rem;
+  line-height: 2rem;
+  margin: 16px;
+  overflow: hidden;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.content {
+  margin: 1.5rem 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  min-height: 280px;
+}
+
+.footer {
+  text-align: center;
+}

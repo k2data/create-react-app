@@ -175,7 +175,13 @@ module.exports = {
               // directory for faster rebuilds.
               cacheDirectory: true,
               // Use react-hot-loader
-              plugins: ['react-hot-loader/babel'],
+              plugins: [
+                'react-hot-loader/babel',
+                [
+                  'import',
+                  { libraryName: 'antd', libraryDirectory: 'es', style: 'css' },
+                ],
+              ],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.
@@ -183,6 +189,20 @@ module.exports = {
           // "style" loader turns CSS into JS modules that inject <style> tags.
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
+          {
+            test: /\.css$/,
+            include: [/node_modules/],
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  minimize: true,
+                },
+              },
+            ],
+          },
           {
             test: /\.css$/,
             use: [
@@ -204,7 +224,7 @@ module.exports = {
                   ident: 'postcss',
                   plugins: () => [
                     require('postcss-nested')(),
-                    require('postcss-preset-env')({stage: 3}),
+                    require('postcss-preset-env')({ stage: 3 }),
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
                       browsers: [

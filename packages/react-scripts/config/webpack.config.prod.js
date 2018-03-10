@@ -178,6 +178,13 @@ module.exports = {
               presets: [require.resolve('babel-preset-react-app')],
               // @remove-on-eject-end
               compact: true,
+              plugins: [
+                'react-hot-loader/babel',
+                [
+                  'import',
+                  { libraryName: 'antd', libraryDirectory: 'es', style: 'css' },
+                ],
+              ],
             },
           },
           // The notation here is somewhat confusing.
@@ -192,6 +199,32 @@ module.exports = {
           // tags. If you use code splitting, however, any async bundles will still
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
+          {
+            test: /\.css$/,
+            include: [/node_modules/],
+            loader: ExtractTextPlugin.extract(
+              Object.assign(
+                {
+                  fallback: {
+                    loader: require.resolve('style-loader'),
+                    options: {
+                      hmr: false,
+                    },
+                  },
+                  use: [
+                    {
+                      loader: require.resolve('css-loader'),
+                      options: {
+                        importLoaders: 1,
+                        minimize: true,
+                      },
+                    },
+                  ],
+                },
+                extractTextPluginOptions
+              )
+            ),
+          },
           {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
@@ -222,7 +255,7 @@ module.exports = {
                         ident: 'postcss',
                         plugins: () => [
                           require('postcss-nested')(),
-                          require('postcss-preset-env')({stage: 3}),
+                          require('postcss-preset-env')({ stage: 3 }),
                           require('postcss-flexbugs-fixes'),
                           autoprefixer({
                             browsers: [

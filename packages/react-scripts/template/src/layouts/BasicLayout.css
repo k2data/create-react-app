@@ -1,5 +1,7 @@
 .nav {
   list-style: none;
+  line-height: 3.5rem;
+  border-bottom: 1px solid #0005;
 }
 
 .nav li {
