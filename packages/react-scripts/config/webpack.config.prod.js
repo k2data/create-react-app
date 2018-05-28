@@ -201,7 +201,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
-            include: [/node_modules/],
+            include: [/node_modules\/(?!(kmx-components-pas)\/).*/],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -254,8 +254,9 @@ module.exports = {
                         // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
                         plugins: () => [
-                          require('postcss-nested')(),
-                          require('postcss-preset-env')({ stage: 3 }),
+                          require('postcss-import'),
+                          require('precss'),
+                          require('autoprefixer'),
                           require('postcss-flexbugs-fixes'),
                           autoprefixer({
                             browsers: [
