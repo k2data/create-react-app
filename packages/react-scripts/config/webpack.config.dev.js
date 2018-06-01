@@ -191,7 +191,7 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            include: [/node_modules\/(?!(kmx-components-pas)\/).*/],
+            include: [/node_modules\/(?!(@k2data\/kmx-components-pas)\/).*/],
             use: [
               require.resolve('style-loader'),
               {

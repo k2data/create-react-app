@@ -201,7 +201,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
-            include: [/node_modules\/(?!(kmx-components-pas)\/).*/],
+            include: [/node_modules\/(?!(@k2data\/kmx-components-pas)\/).*/],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
