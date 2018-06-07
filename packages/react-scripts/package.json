@@ -1,5 +1,5 @@
 {
-  "name": "k2-curated-react-scripts",
+  "name": "k2-tf-react-scripts",
   "version": "1.1.4",
   "description": "K2 configuration and scripts for Create React App with redux, react-router.",
   "repository": "k2data/create-react-app",
@@ -46,6 +46,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "monaco-editor-webpack-plugin": "^1.2.1",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

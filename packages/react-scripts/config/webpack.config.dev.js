@@ -17,6 +17,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -181,6 +182,7 @@ module.exports = {
                   'import',
                   { libraryName: 'antd', libraryDirectory: 'es', style: 'css' },
                 ],
+                new MonacoWebpackPlugin(),
               ],
             },
           },
@@ -224,7 +226,7 @@ module.exports = {
                   ident: 'postcss',
                   plugins: () => [
                     require('postcss-nested')(),
-                    require('postcss-preset-env')({ stage: 3 }),
+                    require('postcss-preset-env')({ stage: 2 }),
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
                       browsers: [
