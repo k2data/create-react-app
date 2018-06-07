@@ -1,5 +1,5 @@
 {
-  "name": "k2-tf-react-scripts",
+  "name": "tf-react-scripts",
   "version": "1.1.4",
   "description": "K2 configuration and scripts for Create React App with redux, react-router.",
   "repository": "k2data/create-react-app",
