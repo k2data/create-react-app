@@ -299,6 +299,13 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.css$/,
+            use: [
+              { loader: "style-loader" },
+              { loader: "css-loader" }
+            ]
+          },
         ],
       },
       // ** STOP ** Are you adding a new loader?
