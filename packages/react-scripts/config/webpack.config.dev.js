@@ -60,12 +60,15 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         ident: 'postcss',
         plugins: () => [
           require('postcss-flexbugs-fixes'),
+          require('postcss-import')(),
+          require('postcss-nested')(),
           require('postcss-preset-env')({
             autoprefixer: {
               flexbox: 'no-2009',
             },
-            stage: 3,
+            stage: 2,
           }),
+          require('tailwindcss')(path.resolve(paths.appPath, 'tailwind.js')),
         ],
       },
     },
@@ -254,6 +257,7 @@ module.exports = {
                     },
                   },
                 ],
+                'react-hot-loader/babel',
               ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/

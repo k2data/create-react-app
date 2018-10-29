@@ -1,0 +1,11 @@
+.btn {
+  @apply bg-transparent text-blue-dark py-2 px-4 border border-blue rounded;
+}
+
+.btn:hover {
+  @apply bg-blue text-white border-transparent;
+}
+
+.btn + .btn {
+  @apply ml-4;
+}

@@ -84,12 +84,15 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         ident: 'postcss',
         plugins: () => [
           require('postcss-flexbugs-fixes'),
+          require('postcss-import')(),
+          require('postcss-nested')(),
           require('postcss-preset-env')({
             autoprefixer: {
               flexbox: 'no-2009',
             },
-            stage: 3,
+            stage: 2,
           }),
+          require('tailwindcss')(path.resolve(paths.appPath, 'tailwind.js')),
         ],
         sourceMap: shouldUseSourceMap,
       },
@@ -476,7 +479,8 @@ module.exports = {
     }),
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
-    shouldInlineRuntimeChunk && new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    shouldInlineRuntimeChunk &&
+      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
